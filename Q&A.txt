@@ -1,0 +1,24 @@
+1. What is NoSQL data base?
+A: A NoSQL referring to Non SQL, Non relational or Not only SQL database provides a mechanism for storage and retrieval of data which is modeled in means other than the tabular relations used in relational databases.NoSQL databases are increasingly used in big data and real-time web applications.NoSQL systems are also sometimes called Not only SQL to emphasize that they may support SQL-like query languages.
+
+2. How does data get stored in NoSQl database?
+A: Graph stores are used to store information about networks of data, such as social connections. Graph stores include Neo4J and Giraph. Key-value stores are the simplest NoSQL databases. Every single item in the database is stored as an attribute name (or 'key'), together with its value.
+
+3. What is a column family in HBase?
+A: A column family is a NoSQL object that contains columns of related data. It is a tuple (pair) that consists of a key-value pair, where the key is mapped to a value that is a set of columns. In analogy with relational databases, a column family is as a table, each key-value pair being a row.
+
+4. How many maximum number of columns can be added to HBase table?
+A: Try to make do with one column family if you can in your schemas. Only introduce a second and third column family in the case where data access is usually column scoped; i.e. you query one column family or the other but usually not both at the one time.
+
+5. Why columns are not defined at the time of table creation in HBase?
+A:  Column families must be declared up front at schema definition time whereas columns do not need to be defined at schema time because it can be conjured on the fly while the table is up an running.
+Physically, all column family members are stored together on the filesystem. Because tunings and storage specifications are done at the column family level, it is advised that all column family members have the same general access pattern and size characteristics.
+
+6. How does data get managed in HBase?
+A: The main characteristics that make Hbase an excellent data management platform are fault tolerance, speed and usability. Fault tolerance is provided by automatic fail-over, automatically sharded and load balanced tables, strong consistency in row level operations and replication. Speed is provided by almost real time lookups, in memory caching and server side processing.
+
+7. What happens internally when new data gets inserted into HBase table?
+A: This is what happens the first time a client reads or writes to HBase:
+--- The client gets the Region server that hosts the META table from ZooKeeper.
+--- The client will query the .META. server to get the region server corresponding to the row key it wants to access. The client caches this information along with the META table location.
+--- It will get the Row from the corresponding Region Server.
